@@ -70,7 +70,6 @@ const revealCard = function (nr) {
       }
   
       activeCards.length = 0; //zerowanie tablicy
-
       turnCounter++; //update countera
       document.querySelector(".turn-counter").textContent = `Turn counter: ${turnCounter}`;
     }
@@ -89,6 +88,8 @@ const hide2Cards = (nr1, nr2) => {
   }
 
   lock = false;
+  firstCardNr = ""; //zeruje z pamieci numer karty
+
 }
 
 const restore2Cards = (nr1, nr2) => {
@@ -100,6 +101,7 @@ const restore2Cards = (nr1, nr2) => {
   cardsDivs[nr2].classList.remove("cardA");
 
   lock = false;
+  firstCardNr = "";
 }
 
 const countScore = () => {
