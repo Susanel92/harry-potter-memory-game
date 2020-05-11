@@ -7,9 +7,10 @@
 
 body {
   margin: 0;
+  min-height: 100vh;
   color: #668896;
   font-family: 'Lobster', sans-serif;
-  font-size: 32px;
+  font-size: 26px;
   background: url(img/hogwart.jpg) no-repeat center center fixed;
   background-size: cover;
 }
@@ -26,12 +27,13 @@ a:active  { color: #668896; }
 a:hover   { color: #E9B64A; }
 
 h1 {
-  font-size: 100px;
+  font-size: 80px;
   font-weight: 400;
   font-family: 'magic-school';
   text-align: center;
   letter-spacing: 2px;
-  margin: 0 0 10px 0;
+  margin: 0 0 20px 0;
+  line-height: 100%;
 }
 
 .yellow {
@@ -39,10 +41,9 @@ h1 {
 }
 
 .wrapper {
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto auto;
   width: 60vw;
-  padding: 30px 0 0;
+  padding: 10px;
   background-color: #26282E;
   border-radius: 25px;
   border: solid 1px #557785;
@@ -53,30 +54,34 @@ h1 {
 }
 
 .board {
-  width: 1000px;
+  /* text-align: center; */
+  max-width: 684px;
   margin-left: auto; 
   margin-right: auto;
-  padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+  justify-content: center;
+  column-count: 5;
 }
 
 .card {
   position: flex;
-  width: 150px;
-  height: 200px;
+  /* flex-basis: 15%; */
+  /* margin: auto auto; */
+  width: 100px;
+  height: 133px;
   margin: 3px;
   background-image: url("img/cover.png");
   border: 4px solid #557785;
   border-radius: 4px;
   -webkit-filter: brightness(85%);
     filter: brightness(85%);
-  -webkit-transition: all 1.3s ease-in-out;
-  -o-transition: all 1.3s ease-in-out;
-  transition: all 1.3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 .card:hover {
@@ -87,8 +92,8 @@ h1 {
 }
 
 .cardA {
-  width: 150px;
-  height: 200px;
+  width: 100px;
+  height: 133px;
   display: inline-block;
   margin: 3px;
   background-image: url("img/cover.png");
@@ -103,6 +108,8 @@ h1 {
 
 .score {
   letter-spacing: 2px;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
   line-height: 100%;
+  width: 100%;
+  margin: 10px auto;
 }
