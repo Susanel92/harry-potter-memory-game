@@ -4,7 +4,7 @@ const cardsDivs = document.querySelectorAll(".card"); //divy kart
 const activeCards = []; //2 aktywne karty
 let firstCardNr;
 let turnCounter = 0;
-let pairsLeft = 9;
+let pairsLeft = 1;
 let lock = false; //blokuje klikanie po kliknieciu w 2 karty
 let score = 0;
 const hpaudio = new Audio("audio/hpaudio.wav")
@@ -30,6 +30,7 @@ const prepareCards = function () {
     maxIndex--
   }
   hpaudio.play();
+  hpaudio.loop = true;
 }
 prepareCards();
 
@@ -82,8 +83,8 @@ const hide2Cards = (nr1, nr2) => {
   pairsLeft--;
 
   if (pairsLeft === 0) {
-    document.querySelector(".board").innerHTML = `<div style="margin-left: auto; margin-right: auto"><h1>Congratulations!<br>
-    You won and earned  ${score} points! </h1><br><br><span class="reset" style="cursor:pointer;" onclick="location.reload()"><a><h1>Again?</h1></a></span></div>`;
+    document.querySelector(".board").innerHTML = `<div class="end-message"><p>Congratulations!</p>
+    <p>You won and earned ${score} points! </p><div class="reset" style="cursor:pointer;" onclick="location.reload()"><a>Again?</a></span></div>`;
     document.querySelector(".score").innerHTML = "";
   }
 
