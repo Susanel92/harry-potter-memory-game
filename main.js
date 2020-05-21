@@ -4,7 +4,7 @@ const cardsDivs = document.querySelectorAll(".card"); //divy kart
 const activeCards = []; //2 aktywne karty
 let firstCardNr;
 let turnCounter = 0;
-let pairsLeft = 1;
+let pairsLeft = 9;
 let lock = false; //blokuje klikanie po kliknieciu w 2 karty
 let score = 0;
 const hpaudio = new Audio("audio/hpaudio.wav")
