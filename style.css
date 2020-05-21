@@ -35,11 +35,11 @@ body {
 /* GAME TITLE */
 
 header {
-  margin: 0 auto 30px;
+  margin: 0 auto 100px;
 }
 
 h1.title {
-  font-size: 8rem;
+  font-size: 9rem;
   font-weight: 400;
   font-family: 'magic-school';
   text-align: center;
@@ -53,12 +53,7 @@ h1.title {
 
 /* BOARD  */
 .wrap {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 660px;
-  margin-top: -330px;
-  margin-left: -350px;
+  margin-top: 50px;
 }
 
 .board-wrapper {
@@ -85,28 +80,27 @@ h1.title {
   column-count: 5;
 }
 
-/* @media (max-width: 1024px) {
-  .card {
-    width: 80%;
-  }
-} */
 
 /* CARD */
 
-.card {
+.card, .cardA {
   display: flex;
   width: 100px;
   height: 133px;
   margin: 3px;
-  border: 4px solid #557785;
   border-radius: 4px;
-  background-image: url("img/cover.png");
+  border: 4px solid #557785;
+  background-size: cover;
   background-position: center top;
-  -webkit-filter: brightness(85%);
-    filter: brightness(85%);
   -webkit-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
+}
+
+.card {
+  background-image: url("img/cover.png");
+  -webkit-filter: brightness(85%);
+    filter: brightness(85%);
 }
 
 .card:hover {
@@ -117,19 +111,10 @@ h1.title {
 }
 
 .cardA {
-  display: flex;
-  width: 100px;
-  height: 133px;
-  margin: 3px;
-  border: 4px solid #E9B64A;
-  border-radius: 4px;
+  border-color: #E9B64A;
   background-image: url("img/cover.png");
-  background-position: center top;
   -webkit-filter: brightness(100%);
     filter: brightness(100%);
-  -webkit-transition: all .3s ease-in-out;
-  -o-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
 }
 
 /* SCORE */
@@ -174,4 +159,182 @@ div.end-message a:hover {
   color: #E9B64A;
   border-color: #E9B64A;
   background-color: rgba(255, 255, 255, .1);
+}
+
+/* MEDIA */
+
+@media (max-height:768px) and (orientation: landscape) {
+  header {
+    margin: 0 auto 30px;
+  }
+
+  .wrap {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 1024px) and (orientation: portrait) { 
+
+  header {
+    margin: 0 auto 100px;
+  }
+  
+  .wrap {
+    margin-top: 250px;
+  }
+  
+}
+
+@media (max-width: 768px) and (orientation: portrait) { 
+  
+  h1.title {
+    font-size: 8rem;
+  }
+    
+  .wrap {
+    margin-top: 100px;
+  }
+  
+}
+
+@media (max-width: 414px) and (orientation: portrait) { 
+  h1.title {
+    font-size: 4rem;
+    padding: 10px;
+  }
+
+  header {
+    margin: 5px auto;
+  }
+    
+  .wrap {
+    margin-top: 5px;
+  }
+
+  .board-wrapper {
+    /* margin: 0 auto 10px; */
+    width: 66vw;
+    /* padding: 20px; */
+  }
+
+  .card, .cardA{
+    width: 70px;
+    height: 93px;
+    margin: 2px;
+    border: 3px solid #557785;
+  }
+
+  .score {
+    font-size: 2.2rem;
+    margin: 0 auto;
+  }
+  
+  .cardA { border-color: #E9B64A; }
+
+  div.turn-counter {display:none;}
+}
+
+
+@media (max-width: 375px) and (orientation: portrait) { 
+
+  .board-wrapper {
+    margin: 0 auto 10px;
+    width: 66vw;
+    padding: 20px;
+  }
+
+  h1.title {
+    font-size: 3rem;
+    line-height: 130%;
+  }
+  
+  .card, .cardA{
+    width: 58px;
+    height: 77px;
+  }
+  
+}
+
+@media (max-width: 320px) and (orientation: portrait) {
+  
+  .board-wrapper {
+    width: 60vw;
+    padding: 20px 10px 10px;
+  }
+
+  .card, .cardA{
+    width: 48px;
+    height: 62px;
+  }
+
+  .score {
+    font-size: 1.8rem;
+  }
+
+}
+
+@media (max-width: 823px) and (orientation: landscape) {
+  
+  .board-wrapper {
+    width: 460px;
+    padding: 10px;
+  }
+
+  .score {
+    margin: 0;
+    font-size: 2rem;
+  } 
+
+  header {
+    margin-bottom: 10px
+  }
+
+  h1.title {
+    font-size: 5rem;
+  }
+
+  .card, .cardA{ 
+    width: 60px;
+    height: 80px;
+    margin: 2px;
+    border: 3px solid #557785;
+  }
+
+  .cardA { border-color: #E9B64A; }
+
+  div.turn-counter {display:none;}
+}
+
+@media (max-width: 640px) and (orientation: landscape) {
+  
+  h1.title {
+    font-size: 4rem;
+  }
+
+  .board-wrapper {
+    width: 400px;
+    padding: 10px;
+  }
+
+  .card, .cardA{ 
+    width: 56px;
+    height: 74px;
+  }
+}
+
+@media (max-width: 568px) and (orientation: landscape) {
+  
+  h1.title {
+    font-size: 3.8rem;
+  }
+
+  .board-wrapper {
+    width: 360px;
+    padding: 10px;
+  }
+
+  .card, .cardA{ 
+    width: 50px;
+    height: 67px;
+  }
 }
