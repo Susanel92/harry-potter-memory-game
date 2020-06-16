@@ -153,3 +153,27 @@ div.end-message a:hover {
   border-color: #E9B64A;
   background-color: rgba(255, 255, 255, 0.1);
 }
+
+/* PLAY BUTTTON */
+
+.button {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 0;
+  height: 50px;
+  border-style: solid;
+  outline: none;
+  background-color: transparent;
+  transition: all .3s;
+  cursor: pointer;
+  /* play state */
+  border-width: 25px 0px 25px 40px;
+  border-color: transparent transparent transparent black;
+}
+
+.button.pause-btn {
+  /* paused state */
+  border-style: double;
+  border-width: 0 0 0 40px;
+}
