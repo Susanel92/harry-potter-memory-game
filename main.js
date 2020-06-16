@@ -121,15 +121,22 @@ const prepareCards = function () {
 }
 
 const playMusic = function () {
-  hpaudio.play();
-  hpaudio.loop = true;
+  this.classList.toggle('pause-btn');
+  if (this.classList.contains('pause-btn')) {
+    // music plays
+    console.log('pauza');
+    hpaudio.play();
+    hpaudio.loop = true;
+  } else {
+    //music pause
+    hpaudio.currentTime = 0;
+    hpaudio.pause();
+  }
 }
 
 const playGame = function () {
   prepareCards();
-  playMusic();
 }
-
 playGame();
 
 //przydzielanie div'om numeru
@@ -138,3 +145,6 @@ cardsDivs.forEach((card, i) => {
     revealCard(i)
   })
 });
+
+// button animation
+document.querySelector('.button').addEventListener('click', playMusic)
