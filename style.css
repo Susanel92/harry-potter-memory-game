@@ -76,8 +76,6 @@ h1.title {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-column-count: 5;
-  column-count: 5;
 }
 
 /* CARD */
