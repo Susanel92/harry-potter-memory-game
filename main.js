@@ -1,18 +1,17 @@
-//ZMIENNE GLOBALNE
-const cardsDeal = []; //wylosowana tablica kart
-const cardsDivs = document.querySelectorAll(".card"); //divy kart
-const activeCards = []; //2 aktywne karty
+//GLOBAL VARIABLES
+const cardsDivs = document.querySelectorAll(".card"); //cards div's
+const cardsDeal = []; //drawn array of cards
+const activeCards = []; //2 active cards
 let firstCardNr;
 let turnCounter = 0;
 let pairsLeft = 9;
-let lock = false; //blokuje klikanie po kliknieciu w 2 karty
+let lock = false; //blocks clicking after 2 times
 let score = 0;
-const hpaudio = new Audio("audio/hpaudio.wav")
+const hpaudio = new Audio("audio/hpaudio.wav");
 
-//FUNKCJE
+//FUNCTIONS
 
 const countScore = () => {
-
   if (turnCounter < 10) {
     score += 10;
   } else if (turnCounter < 20) {
@@ -24,7 +23,7 @@ const countScore = () => {
   }
 
   document.querySelector(".game-score").textContent = `Game score: ${score}`;
-}
+};
 
 const hide2Cards = (nr1, nr2) => {
   cardsDivs[nr1].style.opacity = "0";
@@ -32,15 +31,16 @@ const hide2Cards = (nr1, nr2) => {
   pairsLeft--;
 
   if (pairsLeft === 0) {
-    document.querySelector(".board").innerHTML = `<div class="end-message"><p>Congratulations!</p>
+    document.querySelector(
+      ".board"
+    ).innerHTML = `<div class="end-message"><p>Congratulations!</p>
     <p>You won and earned ${score} points! </p><div class="reset" style="cursor:pointer;" onclick="location.reload()"><a>Again?</a></span></div>`;
     document.querySelector(".score").innerHTML = "";
   }
 
   lock = false;
-  firstCardNr = ""; //zeruje z pamieci numer karty
-
-}
+  firstCardNr = ""; //resets the card number from memory
+};
 
 const restore2Cards = (nr1, nr2) => {
   cardsDivs[nr1].style.backgroundImage = "url(img/cover.png)";
@@ -52,16 +52,17 @@ const restore2Cards = (nr1, nr2) => {
 
   lock = false;
   firstCardNr = "";
-}
+};
 
 const revealCard = function (nr) {
   let cardOpacity = cardsDivs[nr].style.opacity;
 
-  if (lock === false && cardOpacity !== "0") { //zabezpiecza przed klikaniem w wiecej niz 2 karty
+  if (lock === false && cardOpacity !== "0") {
+    //prevents from clicking on more than 2 cards
 
-    if (firstCardNr === nr) return; //przy podwojnym kliknieciu w 1 karte
+    if (firstCardNr === nr) return; //prevents from double click on same card
 
-    //pobranie ściezki kliknietej karty
+    //getting path of clicked card
     const imgPath = `url("img/${cardsDeal[nr]}")`;
 
     cardsDivs[nr].style.backgroundImage = imgPath;
@@ -69,62 +70,61 @@ const revealCard = function (nr) {
     cardsDivs[nr].classList.remove("card");
 
     if (activeCards.length === 0) {
-
-      //pierwsza karta
+      //1st card
       activeCards[0] = cardsDeal[nr];
       firstCardNr = nr;
-
     } else {
-
-      //druga karta
+      //2nd card
       lock = true;
       activeCards[1] = cardsDeal[nr];
 
       if (activeCards[0] === activeCards[1]) {
-        //odkryto identyczne karty
+        //reveal 2 identical cards
         setTimeout(function () {
-          hide2Cards(firstCardNr, nr)
-        }, 1000)
+          hide2Cards(firstCardNr, nr);
+        }, 1000);
         countScore();
       } else {
-        //odkryto różne karty
+        //reveal 2 different cards
         setTimeout(function () {
-          restore2Cards(firstCardNr, nr)
-        }, 1000)
+          restore2Cards(firstCardNr, nr);
+        }, 1000);
       }
 
-      activeCards.length = 0; //zerowanie tablicy
-      turnCounter++; //update countera
-      document.querySelector(".turn-counter").textContent = `Turn counter: ${turnCounter}`;
+      activeCards.length = 0; //clearing the array
+      turnCounter++; //counter's update
+      document.querySelector(
+        ".turn-counter"
+      ).textContent = `Turn counter: ${turnCounter}`;
     }
   }
-}
+};
 
 const prepareCards = function () {
   const cards = [];
 
-  //generowanie generowanie tablicy ["c0.png", "c0.png", "c1.png", "c1.png"...itd]
+  //generating an array: ["c0.png", "c0.png", "c1.png", "c1.png"...itd]
   for (let i = 0, j = 0; i < cardsDivs.length / 2; i++, j = j + 2) {
     let cardName = `c${i}.png`;
     cards[j] = cardName;
     cards[j + 1] = cardName;
   }
 
-  //losowanie kart
+  //card draw
   let maxIndex = 17;
   for (let i = 0; i < cardsDivs.length; i++) {
     const index = Math.floor(Math.random() * maxIndex);
     cardsDeal[i] = cards[index];
     cards[index] = cards[maxIndex];
-    maxIndex--
+    maxIndex--;
   }
-}
+};
 
 const playMusic = function () {
-  this.classList.toggle('pause-btn');
-  if (this.classList.contains('pause-btn')) {
+  this.classList.toggle("pause-btn");
+  if (this.classList.contains("pause-btn")) {
     // music plays
-    console.log('pauza');
+    console.log("pauza");
     hpaudio.play();
     hpaudio.loop = true;
   } else {
@@ -132,19 +132,19 @@ const playMusic = function () {
     hpaudio.currentTime = 0;
     hpaudio.pause();
   }
-}
+};
 
 const playGame = function () {
   prepareCards();
-}
+};
 playGame();
 
-//przydzielanie div'om numeru
+//assigning a number to divs
 cardsDivs.forEach((card, i) => {
   card.addEventListener("click", function () {
-    revealCard(i)
-  })
+    revealCard(i);
+  });
 });
 
 // button animation
-document.querySelector('.button').addEventListener('click', playMusic)
+document.querySelector(".button").addEventListener("click", playMusic);
