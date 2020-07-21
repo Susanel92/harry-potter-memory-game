@@ -1,68 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Harry Potter Memory Game</title>
+    <meta
+      name="description"
+      content="Memory game inspirowane twórczością J. K. Rowling"
+    />
+    <meta author="ZN" />
 
-<head>
-  <meta charset="UTF-8">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-  <title>Harry Potter Memory Game</title>
-  <meta name="description" content="Memory game inspirowane twórczością J. K. Rowling">
-  <meta author="ZN">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Acme&display=swap"
+      rel="stylesheet"
+    />
 
-  <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
 
-  <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
 
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <body>
+    <main class="wrap">
+      <header>
+        <h1 class="title">
+          <span class="yellow">Harry Potter</span> Memory Test
+        </h1>
+      </header>
 
-</head>
+      <div class="board-wrapper">
+        <div class="board">
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
 
-<body>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
 
-  <main class="wrap">
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+        </div>
 
-    <header>
-      <h1 class="title"><span class="yellow">Harry Potter</span> Memory Test</h1>
-    </header>
-
-    <div class="board-wrapper">
-
-      <div class="board">
-
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-
+        <div class="score">
+          <div class="turn-counter">Turn counter: 0</div>
+          <div class="game-score">Game score: 0</div>
+        </div>
       </div>
+    </main>
 
-      <div class="score">
-        <div class="turn-counter">Turn counter: 0</div>
-        <div class="game-score">Game score: 0</div>
-      </div>
+    <button class="button"></button>
+    <!-- <button class="button paused"></button> -->
 
-    </div>
-  </main>
-
-  <button class="button"></button>
-  <!-- <button class="button paused"></button> -->
-
-  <script src="main.js"></script>
-</body>
-
+    <script src="main.js"></script>
+  </body>
 </html>
